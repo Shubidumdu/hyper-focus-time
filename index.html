@@ -7,27 +7,41 @@
     <title>절대집중시간</title>
   </head>
   <body>
-    <div class="head">
-      <h1 class="title">절대집중시간</h1>
-      <h4 class="sub-title">HYPER-FOCUS TIME</h6>
-		</div>
-		<div class="body">
-      절대집중시간은 당신의 집중을 위한 기능들을 제공합니다.
-      해당 앱을 실행하는 동안에는 오직 해야할 일에 집중해보세요!
-    </div>
-    <div class="tale">
-      <button class="option-button">설정</button>
-      <button class="start-button">시작</button>
-    </div>
-    <div class="modal-wrapper" style="display: none;">
-      <div class="modal">
-        <div class="modal-title">감사합니다!</div>
-        <p>열심히 하겠씁니다ㅠㅠㅠ</p>
-        <div class="close-wrapper">
-          <button class="cancel-button">취소</button>
-          <button class="accept-button">확인</button>
+    <div class="intro">
+      <div class="head">
+        <h1 class="title">절대집중시간</h1>
+        <h4 class="sub-title">HYPER-FOCUS TIME</h6>
+      </div>
+      <div class="body">
+        절대집중시간은 당신의 집중을 위한 기능들을 제공합니다.
+        해당 앱을 실행하는 동안에는 오직 해야할 일에 집중해보세요!
+      </div>
+      <div class="tale">
+        <button class="option-button">설정</button>
+        <button class="start-button">시작</button>
+      </div>
+      <div class="modal-wrapper">
+        <div class="modal">
+          <div class="modal-title">설정</div>
+          <div class="modal-body">
+            <div class="set-focus-time">
+              <h5 class="set-label">집중할 시간</h5>
+              <input id="focus-time" type="number" min="0"/>분
+            </div>
+            <div class="set-rest-time">
+              <h5 class="set-label">쉬는 시간</h5>
+              <input id="rest-time" type="number" min="0"/>분
+            </div>
+          </div>
+          <div class="close-wrapper">
+            <button class="cancel-button">취소</button>
+            <button class="accept-button">확인</button>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="on-work">
+      작동중!
     </div>
     <script type="text/javascript" src="index.js"></script>
   </body>
