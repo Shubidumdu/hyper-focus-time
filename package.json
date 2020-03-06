@@ -1,0 +1,27 @@
+{
+  "name": "hyper-focus-time",
+  "version": "1.0.0",
+  "description": "be focus on what you should do!",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shubidumdu/hyper-focus-time.git"
+  },
+  "keywords": [
+    "work"
+  ],
+  "author": "Shubidumdu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shubidumdu/hyper-focus-time/issues"
+  },
+  "homepage": "https://github.com/Shubidumdu/hyper-focus-time#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1"
+  }
+}
