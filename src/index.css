@@ -129,12 +129,31 @@ button.accept-button {
   margin-bottom: 1rem;
 }
 
+.intro .body span {
+  display: block;
+}
+
+@media screen and (max-width: 900px) {
+  .intro .head .title {
+    font-size: 2.5rem;
+  }
+
+  .intro .body {
+    padding: 0 1rem;
+  }
+
+  .intro .body span {
+    display: inline;
+  }
+}
+
 .intro .tail button {
   margin: 0.5rem;
 }
 
 /* on Working */
 .on-work {
+  text-align: center;
   display: none;
 }
 
@@ -160,9 +179,47 @@ button.accept-button {
   background: #66a614;
 }
 
+@media screen and (max-width: 820px) {
+  .on-work #remain-type {
+    display: block;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .on-work .head {
+    font-size: 2.5rem;
+  }
+
+  .on-work #remain-type {
+    font-size: 1.5rem;
+  }
+
+  .on-work #remain-time {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .on-work .head {
+    font-size: 2rem;
+  }
+
+  .on-work #remain-type {
+    font-size: 1rem;
+  }
+
+  .on-work #remain-time {
+    font-size: 1.5rem;
+  }
+}
+
 /* On End */
 .on-end {
   display: none;
+  text-align: center;
 }
 
 .on-end .head {
@@ -177,4 +234,14 @@ button.accept-button {
 
 #reset-button {
   background: #a63114;
+}
+
+@media screen and (max-width: 425px) {
+  .on-end .head {
+    font-size: 2rem;
+  }
+
+  .on-end .body {
+    font-size: 1rem;
+  }
 }
