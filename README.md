@@ -22,7 +22,7 @@
 
 ---
 ## URL
-- 배포된 앱은 [여기](https://hyper-focus-time.herokuapp.com/)에서 쓸 수 있어요!
+- 배포된 앱은 [**여기**](https://hyper-focus-time.herokuapp.com/)에서 쓸 수 있어요!
 
 ---
 
