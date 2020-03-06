@@ -22,6 +22,8 @@ const RestTimeInput = document.getElementById("rest-time")
 const RemainType = document.getElementById("remain-type");
 const RemainTime = document.getElementById("remain-time");
 
+const OnWorkHeader = document.getElementById("on-work-header");
+
 let FocusTime = 50;
 let RestTime = 10;
 
@@ -61,8 +63,10 @@ let startRest;
 
 const setRemainType = (type) => {
     if (type === "focus") {
+        OnWorkHeader.innerHTML = `집중하세요!`
         RemainType.innerHTML = `남은 집중 시간`;
     } else {
+        OnWorkHeader.innerHTML = `잠깐 쉬세요!`
         RemainType.innerHTML = `남은 쉬는 시간`;
     }
 }
@@ -155,5 +159,5 @@ EndButton.addEventListener("click", (e) => {
 ResetButton.addEventListener("click", (e) => {
     EndWrap.style.display = "none";
     IntroWrap.style.display = "flex";
-    TotalFocus = 0;
+    TotalFocusTime = 0;
 })

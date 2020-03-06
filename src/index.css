@@ -9,8 +9,15 @@
 
 body {
   font-family: Neo;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #032ca6;
 }
 
+/* modal */
 .modal-wrapper {
   position: fixed;
   display: none;
@@ -24,33 +31,150 @@ body {
 }
 
 .modal {
-  background: white;
-  padding: 24px 16px;
-  border-radius: 4px;
-  width: 320px;
+  background: #021859;
+  border: 5px solid #04adbf;
+  padding: 1rem 1rem;
+  border-radius: 1rem;
+  width: 20rem;
 }
 
 .modal-title {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.modal-body input {
+  background: #021859;
+  color: #f2cb05;
+  text-align: right;
+  border: 2px solid #04adbf;
+  margin-right: 0.25rem;
+}
+
+.modal-body .set-label {
+  margin: 0.5rem 0;
 }
 
 .modal p {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .close-wrapper {
   text-align: right;
+  margin-top: 1rem;
 }
 
-.intro {
+/* buttons */
+button {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 1.5rem;
+}
+
+button.option-button,
+button.cancel-button {
+  background: #a63114;
+}
+
+button.start-button,
+button.accept-button {
+  background: #66a614;
+}
+
+.modal button {
+  height: 3rem;
+  border-radius: 0.25rem;
+}
+
+/* introduction */
+.intro,
+.on-work,
+.on-end {
   display: flex;
+  width: 80vw;
+  height: 80vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #021859;
+  border: 5px solid #04adbf;
+  border-radius: 1rem;
+  color: #f2cb05;
 }
 
+.intro .head {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.intro .head .title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro .head .sub-title {
+  font-size: 1.5rem;
+}
+
+.intro .body {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.intro .tail button {
+  margin: 0.5rem;
+}
+
+/* on Working */
 .on-work {
   display: none;
 }
 
+.on-work .head {
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+
+.on-work .body {
+  margin-bottom: 2rem;
+}
+
+.on-work #remain-type {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.on-work #remain-time {
+  font-size: 3rem;
+}
+
+#end-button {
+  background: #66a614;
+}
+
+/* On End */
 .on-end {
   display: none;
+}
+
+.on-end .head {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.on-end .body {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+#reset-button {
+  background: #a63114;
 }
