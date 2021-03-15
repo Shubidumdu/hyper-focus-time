@@ -22,8 +22,10 @@
         </span>
       </div>
       <div class="tail">
-        <button class="option-button">설정</button>
-        <button class="start-button">시작</button>
+        <!-- <button class="option-button">설정</button>
+        <button class="start-button">시작</button> -->
+        <custom-button color="red">설정</custom-button>
+        <custom-button color="green">시작</custom-button>
       </div>
       <div class="modal-wrapper">
         <div class="modal">
@@ -41,6 +43,8 @@
           <div class="close-wrapper">
             <button class="cancel-button">취소</button>
             <button class="accept-button">확인</button>
+            <!-- <custom-button color="red">취소</custom-button>
+            <custom-button color="green">확인</custom-button> -->
           </div>
         </div>
       </div>
@@ -56,14 +60,13 @@
       </div>
     </div>
     <div class="on-end">
-      <div class="head">
-        수고했어요!
-      </div>
+      <div class="head">수고했어요!</div>
       <div class="body"><span id="total-focus"></span> 동안 집중했습니다!</div>
       <div class="tail">
         <button id="reset-button">다시</button>
       </div>
     </div>
     <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="components/CustomButton.js"></script>
   </body>
 </html>
