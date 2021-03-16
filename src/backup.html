@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="img/fav.png" />
+    <title>절대집중시간</title>
+  </head>
+  <body>
+    <div class="intro">
+      <div class="head">
+        <span class="title">절대집중시간</span>
+        <span class="sub-title">HYPER-FOCUS TIME</span>
+      </div>
+      <div class="body">
+        <span>
+          절대집중시간은 당신의 반복적인 집중과 휴식을 위한 타이머를 제공합니다.
+        </span>
+        <span>
+          해당 앱을 작동시키는 동안에는 오직 해야할 일에 집중해보세요!
+        </span>
+      </div>
+      <div class="tail">
+        <!-- <button class="option-button">설정</button>
+        <button class="start-button">시작</button> -->
+        <custom-button color="red">설정</custom-button>
+        <custom-button color="green">시작</custom-button>
+      </div>
+      <div class="modal-wrapper">
+        <div class="modal">
+          <div class="modal-title">설정</div>
+          <div class="modal-body">
+            <div class="set-focus-time">
+              <div class="set-label">집중할 시간</div>
+              <input id="focus-time" type="number" min="1" />분
+            </div>
+            <div class="set-rest-time">
+              <div class="set-label">쉬는 시간</div>
+              <input id="rest-time" type="number" min="1" />분
+            </div>
+          </div>
+          <div class="close-wrapper">
+            <!-- <button class="cancel-button">취소</button>
+            <button class="accept-button">확인</button> -->
+            <custom-button color="red">취소</custom-button>
+            <custom-button color="green">확인</custom-button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="on-work">
+      <div id="on-work-header" class="head"></div>
+      <div class="body">
+        <span id="remain-type"> </span>
+        <span id="remain-time"> </span>
+      </div>
+      <div class="tail">
+        <button id="end-button">완료</button>
+      </div>
+    </div>
+    <div class="on-end">
+      <div class="head">수고했어요!</div>
+      <div class="body"><span id="total-focus"></span> 동안 집중했습니다!</div>
+      <div class="tail">
+        <button id="reset-button">다시</button>
+      </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="components/CustomButton.js"></script>
+  </body>
+</html>
