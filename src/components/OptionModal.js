@@ -1,4 +1,4 @@
-(function(){
+(function () {
   const template = document.createElement('template');
   template.innerHTML = `
     <style>
@@ -80,10 +80,14 @@
 
     constructor() {
       super();
-      this.attachShadow({ mode: 'open'});
+      this.attachShadow({ mode: 'open' });
       this.shadowRoot.append(template.content.cloneNode(true));
-      this.$CancelButton = this.shadowRoot.querySelector("custom-button[color='red']");
-      this.$ConfirmButton = this.shadowRoot.querySelector("custom-button[color='green']");
+      this.$CancelButton = this.shadowRoot.querySelector(
+        "custom-button[color='red']",
+      );
+      this.$ConfirmButton = this.shadowRoot.querySelector(
+        "custom-button[color='green']",
+      );
       this.$FocusTimeInput = this.shadowRoot.querySelector('#focus-time');
       this.$RestTimeInput = this.shadowRoot.querySelector('#rest-time');
       this.$ModalWrapper = this.shadowRoot.querySelector('.modal-wrapper');
@@ -101,20 +105,22 @@
       this.$ConfirmButton.removeEventListener('click', this._onConfirm);
     }
 
-    _onCancel () {
+    _onCancel() {
       this.isOpen = false;
     }
 
-    _onConfirm () {
+    _onConfirm() {
       this.isOpen = false;
-      this.dispatchEvent(new CustomEvent('option-confirm', {
-        bubbles: true,
-        composed: true,
-        detail: {
-          focusTime: this.$FocusTimeInput.value,
-          restTime: this.$RestTimeInput.value
-        }
-      }))
+      this.dispatchEvent(
+        new CustomEvent('option-confirm', {
+          bubbles: true,
+          composed: true,
+          detail: {
+            focusTime: this.$FocusTimeInput.value,
+            restTime: this.$RestTimeInput.value,
+          },
+        }),
+      );
     }
 
     set focusTime(value) {
@@ -137,18 +143,21 @@
       if (value) {
         this.setAttribute('is-open', '');
         this.$ModalWrapper.style.display = 'flex';
-        this.dispatchEvent(new CustomEvent('modal-open', {
-          bubbles: true,
-          composed: true,
-        }))
-      }
-      else {
+        this.dispatchEvent(
+          new CustomEvent('modal-open', {
+            bubbles: true,
+            composed: true,
+          }),
+        );
+      } else {
         this.removeAttribute('is-open');
         this.$ModalWrapper.style.display = 'none';
-        this.dispatchEvent(new CustomEvent('modal-close', {
-          bubbles: true,
-          composed: true,
-        }))
+        this.dispatchEvent(
+          new CustomEvent('modal-close', {
+            bubbles: true,
+            composed: true,
+          }),
+        );
       }
     }
 

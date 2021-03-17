@@ -84,23 +84,38 @@
     constructor() {
       super();
       this._onOption = this._onOption.bind(this);
-      this.attachShadow({ mode: 'open'});
+      this._onStart = this._onStart.bind(this);
+      this.attachShadow({ mode: 'open' });
       this.shadowRoot.append(template.content.cloneNode(true));
-      this.$OptionButton = this.shadowRoot.querySelector("custom-button[color='red']");
-      this.$StartButton = this.shadowRoot.querySelector("custom-button[color='green']");
+      this.$OptionButton = this.shadowRoot.querySelector(
+        "custom-button[color='red']",
+      );
+      this.$StartButton = this.shadowRoot.querySelector(
+        "custom-button[color='green']",
+      );
       this.$OptionModal = this.shadowRoot.querySelector('option-modal');
     }
 
     connectedCallback() {
       this.$OptionButton.addEventListener('click', this._onOption);
+      this.$StartButton.addEventListener('click', this._onStart);
     }
 
     disconnectedCallback() {
       this.$OptionButton.removeEventListener('click', this._onOption);
+      this.$StartButton.addEventListener('click', this._onStart);
     }
 
-    _onOption () {
+    _onOption() {
       this.$OptionModal.isOpen = true;
+    }
+
+    _onStart() {
+      this.dispatchEvent(
+        new CustomEvent('app-start', {
+          bubbles: true,
+        }),
+      );
     }
   }
 

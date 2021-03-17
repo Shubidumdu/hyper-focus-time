@@ -21,7 +21,7 @@
   class CustomContainer extends HTMLElement {
     constructor() {
       super();
-      this.attachShadow({ mode: 'open'});
+      this.attachShadow({ mode: 'open' });
       this.shadowRoot.append(template.content.cloneNode(true));
     }
   }
