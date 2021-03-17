@@ -10,6 +10,7 @@
         background: #021859;
         border: 5px solid #04adbf;
         border-radius: 1rem;
+        padding: 5rem;
         color: #f2cb05;
       }
     </style>

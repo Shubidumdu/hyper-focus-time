@@ -2,10 +2,6 @@
   const template = document.createElement('template');
   template.innerHTML = `
     <style>
-      .wrap {
-        padding: 5rem;
-      }
-
       .head {
         display: flex;
         flex-direction: column;
@@ -53,7 +49,7 @@
     </style>
     <div>
       <custom-container>
-        <div class='wrap'>
+        <div>
           <div class="head">
             <span class="title">절대집중시간</span>
             <span class="sub-title">HYPER-FOCUS TIME</span>
@@ -80,6 +76,7 @@
     $OptionButton = null;
     $StartButton = null;
     $OptionModal = null;
+    $PageWrapper = null;
 
     constructor() {
       super();
@@ -94,6 +91,7 @@
         "custom-button[color='green']",
       );
       this.$OptionModal = this.shadowRoot.querySelector('option-modal');
+      this.$PageWrapper = this.shadowRoot.querySelector('div');
     }
 
     connectedCallback() {
@@ -114,8 +112,24 @@
       this.dispatchEvent(
         new CustomEvent('app-start', {
           bubbles: true,
+          composed: true,
         }),
       );
+    }
+
+    set hidden(value) {
+      const bool = Boolean(value);
+      if (bool) {
+        this.$PageWrapper.style.display = 'none';
+        this.setAttribute('hidden', '');
+      } else {
+        this.$PageWrapper.style.display = 'flex';
+        this.removeAttribute('hidden');
+      }
+    }
+
+    get hidden() {
+      return this.hasAttribute('hidden');
     }
   }
 

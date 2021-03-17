@@ -30,6 +30,7 @@
       
       .modal-body input {
         font-family: Neo;
+        font-size: 1rem;
         background: #021859;
         color: #f2cb05;
         text-align: right;
