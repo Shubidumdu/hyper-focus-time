@@ -88,6 +88,7 @@
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });
+      this._onEnd = this._onEnd.bind(this);
       this.shadowRoot.append(template.content.cloneNode(true));
       this.$Main = this.shadowRoot.querySelector('.head');
       this.$RemainType = this.shadowRoot.querySelector('#remain-type');
@@ -96,9 +97,22 @@
       this.$PageWrapper = this.shadowRoot.querySelector('custom-container');
     }
 
-    connectedCallback() {}
+    _onEnd() {
+      this.dispatchEvent(
+        new CustomEvent('app-end', {
+          bubbles: true,
+          composed: true,
+        }),
+      );
+    }
 
-    disconnectedCallback() {}
+    connectedCallback() {
+      this.$EndButton.addEventListener('click', this._onEnd);
+    }
+
+    disconnectedCallback() {
+      this.$EndButton.removeEventListener('click', this._onEnd);
+    }
 
     start(time) {
       this.type = 'work';
@@ -106,7 +120,6 @@
     }
 
     set type(value) {
-      console.log(this.$RemainType);
       this.setAttribute('type', value);
       if (value === 'rest') {
         this.$Main.innerHTML = '잠깐 쉬세요!';
