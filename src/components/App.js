@@ -74,23 +74,3 @@
 
   customElements.define('hyper-focus-time', App);
 })();
-
-// {
-// <div class="on-work">
-//   <div id="on-work-header" class="head"></div>
-//   <div class="body">
-//     <span id="remain-type"> </span>
-//     <span id="remain-time"> </span>
-//   </div>
-//   <div class="tail">
-//     <button id="end-button">완료</button>
-//   </div>
-//   </div>
-// <div class="on-end">
-// <div class="head">수고했어요!</div>
-// <div class="body"><span id="total-focus"></span> 동안 집중했습니다!</div>
-// <div class="tail">
-//   <button id="reset-button">다시</button>
-// </div>
-// </div>
-// }
