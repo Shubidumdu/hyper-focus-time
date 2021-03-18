@@ -83,6 +83,9 @@
       super();
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.append(template.content.cloneNode(true));
+      this._onCancel = this._onCancel.bind(this);
+      this._onConfirm = this._onConfirm.bind(this);
+      this._onEnter = this._onEnter.bind(this);
       this.$CancelButton = this.shadowRoot.querySelector(
         "custom-button[color='red']",
       );
@@ -97,13 +100,27 @@
     connectedCallback() {
       this._onCancel = this._onCancel.bind(this);
       this._onConfirm = this._onConfirm.bind(this);
+      this._onEnter = this._onEnter.bind(this);
       this.$CancelButton.addEventListener('click', this._onCancel);
       this.$ConfirmButton.addEventListener('click', this._onConfirm);
+      document.addEventListener('keydown', this._onEnter);
     }
 
     disconnectedCallback() {
       this.$CancelButton.removeEventListener('click', this._onCancel);
       this.$ConfirmButton.removeEventListener('click', this._onConfirm);
+      document.removeEventListener('keydown', this._onEnter);
+    }
+
+    _onEnter(e) {
+      console.log(e);
+      const code = e.code;
+      if (code === 'Enter') {
+        this._onConfirm();
+      }
+      if (code === 'Escape') {
+        this._onCancel();
+      }
     }
 
     _onCancel() {
@@ -150,6 +167,7 @@
             composed: true,
           }),
         );
+        document.addEventListener('keydown', this._onEnter);
       } else {
         this.removeAttribute('is-open');
         this.$ModalWrapper.style.display = 'none';

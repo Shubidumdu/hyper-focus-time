@@ -1,6 +1,35 @@
 (function () {
   const template = document.createElement('template');
   template.innerHTML = `
+    <style>
+      .on-end {
+        text-align: center;
+      }
+      
+      .on-end .head {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+      
+      .on-end .body {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+      
+      #reset-button {
+        background: #a63114;
+      }
+      
+      @media screen and (max-width: 425px) {
+        .on-end .head {
+          font-size: 2rem;
+        }
+      
+        .on-end .body {
+          font-size: 1rem;
+        }
+      }
+    </style>
     <custom-container>
       <div class="on-end">
         <div class="head">수고했어요!</div>
