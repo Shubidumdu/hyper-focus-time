@@ -57,7 +57,7 @@
         <div class="modal-body">
           <div class="set-focus-time">
             <div class="set-label">집중할 시간</div>
-            <input id="focus-time" type="number" min="1" />분
+            <input id="focus-time" type="number" min="1"/>분
           </div>
           <div class="set-rest-time">
             <div class="set-label">쉬는 시간</div>
@@ -85,7 +85,7 @@
       this.shadowRoot.append(template.content.cloneNode(true));
       this._onCancel = this._onCancel.bind(this);
       this._onConfirm = this._onConfirm.bind(this);
-      this._onEnter = this._onEnter.bind(this);
+      this._onKeyPressInput = this._onKeyPressInput.bind(this);
       this.$CancelButton = this.shadowRoot.querySelector(
         "custom-button[color='red']",
       );
@@ -100,20 +100,41 @@
     connectedCallback() {
       this._onCancel = this._onCancel.bind(this);
       this._onConfirm = this._onConfirm.bind(this);
-      this._onEnter = this._onEnter.bind(this);
+      this._onKeyPressInput = this._onKeyPressInput.bind(this);
       this.$CancelButton.addEventListener('click', this._onCancel);
       this.$ConfirmButton.addEventListener('click', this._onConfirm);
-      document.addEventListener('keydown', this._onEnter);
+      this.$FocusTimeInput.addEventListener('keydown', this._onKeyPressInput);
+      this.$RestTimeInput.addEventListener('keydown', this._onKeyPressInput);
+      this.$FocusTimeInput.addEventListener('input', this._onChangeInput);
+      this.$RestTimeInput.addEventListener('input', this._onChangeInput);
     }
 
     disconnectedCallback() {
       this.$CancelButton.removeEventListener('click', this._onCancel);
       this.$ConfirmButton.removeEventListener('click', this._onConfirm);
-      document.removeEventListener('keydown', this._onEnter);
+      this.$FocusTimeInput.removeEventListener(
+        'keydown',
+        this._onKeyPressInput,
+      );
+      this.$RestTimeInput.removeEventListener('keydown', this._onKeyPressInput);
+      this.$FocusTimeInput.removeEventListener('input', this._onChangeInput);
+      this.$RestTimeInput.removeEventListener('input', this._onChangeInput);
     }
 
-    _onEnter(e) {
-      console.log(e);
+    _onChangeInput(e) {
+      const value = e.target.value;
+      if (value < 0) {
+        e.target.value = 0;
+        return;
+      }
+      if (value > 1440) {
+        e.target.value = 1440;
+        return;
+      }
+      e.target.value = Math.floor(value);
+    }
+
+    _onKeyPressInput(e) {
       const code = e.code;
       if (code === 'Enter') {
         this._onConfirm();
@@ -128,6 +149,8 @@
     }
 
     _onConfirm() {
+      if (this.$FocusTimeInput.value < 1) this.$FocusTimeInput.value = 1;
+      if (this.$RestTimeInput.value < 1) this.$RestTimeInput.value = 1;
       this.isOpen = false;
       this.dispatchEvent(
         new CustomEvent('option-confirm', {
@@ -167,7 +190,6 @@
             composed: true,
           }),
         );
-        document.addEventListener('keydown', this._onEnter);
       } else {
         this.removeAttribute('is-open');
         this.$ModalWrapper.style.display = 'none';

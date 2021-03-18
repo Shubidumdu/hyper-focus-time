@@ -79,6 +79,7 @@
   `;
 
   class WorkingPage extends HTMLElement {
+    intervalId = null;
     $Main = null;
     $RemainType = null;
     $RemainTime = null;
@@ -98,6 +99,7 @@
     }
 
     _onEnd() {
+      clearInterval(this.intervalId);
       this.dispatchEvent(
         new CustomEvent('app-end', {
           bubbles: true,
@@ -114,9 +116,59 @@
       this.$EndButton.removeEventListener('click', this._onEnd);
     }
 
-    start(time) {
+    work(minute) {
       this.type = 'work';
-      this.time = time;
+      this.time = minute * 60;
+      this.renderTime();
+      this.intervalId = setInterval(() => {
+        this.time -= 1;
+        this.dispatchEvent(
+          new CustomEvent('tic', {
+            bubbles: true,
+            composed: true,
+          }),
+        );
+        this.renderTime();
+        if (!this.time) {
+          clearInterval(this.intervalId);
+          this.dispatchEvent(
+            new CustomEvent('rest', {
+              bubbles: true,
+              composed: true,
+            }),
+          );
+        }
+      }, 1000);
+    }
+
+    rest(minute) {
+      this.type = 'rest';
+      this.time = minute * 60;
+      this.renderTime();
+      this.intervalId = setInterval(() => {
+        this.time -= 1;
+        this.renderTime();
+        if (!this.time) {
+          clearInterval(this.intervalId);
+          this.dispatchEvent(
+            new CustomEvent('work', {
+              bubbles: true,
+              composed: true,
+            }),
+          );
+        }
+      }, 1000);
+    }
+
+    renderTime() {
+      const seconds = this.time % 60;
+      const minutes = parseInt(this.time / 60) % 60;
+      const hours = parseInt(parseInt(this.time / 60) / 60) % 60;
+
+      this.$RemainTime.innerHTML = `
+      ${hours ? `${hours}시간` : ''} 
+      ${minutes ? `${minutes}분` : ''} 
+      ${seconds ? `${seconds}초` : ''}`;
     }
 
     set type(value) {

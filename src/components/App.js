@@ -21,6 +21,9 @@
       this._onOptionConfirm = this._onOptionConfirm.bind(this);
       this._onAppStart = this._onAppStart.bind(this);
       this._onAppEnd = this._onAppEnd.bind(this);
+      this._onRest = this._onRest.bind(this);
+      this._onWork = this._onWork.bind(this);
+      this._onTic = this._onTic.bind(this);
       this.shadowRoot.append(template.content.cloneNode(true));
       this.$IntroPage = this.shadowRoot.querySelector('intro-page');
       this.$WorkingPage = this.shadowRoot.querySelector('working-page');
@@ -33,6 +36,9 @@
       this.addEventListener('app-start', this._onAppStart);
       this.addEventListener('app-end', this._onAppEnd);
       this.addEventListener('app-reset', this._onAppReset);
+      this.addEventListener('rest', this._onRest);
+      this.addEventListener('work', this._onWork);
+      this.addEventListener('tic', this._onTic);
     }
 
     disconnectedCallback() {
@@ -41,34 +47,51 @@
       this.removeEventListener('app-start', this._onAppStart);
       this.removeEventListener('app-end', this._onAppEnd);
       this.removeEventListener('app-reset', this._onAppReset);
+      this.removeEventListener('rest', this._onRest);
+      this.removeEventListener('work', this._onWork);
+      this.removeEventListener('tic', this._onTic);
     }
 
     _onModalOpen(e) {
       const $OptionModal = e.composedPath()[0];
-      $OptionModal.$FocusTimeInput.value = this.focusTime;
-      $OptionModal.$RestTimeInput.value = this.restTime;
+      $OptionModal.focusTime = this.focusTime;
+      $OptionModal.restTime = this.restTime;
     }
 
     _onOptionConfirm(e) {
       const $OptionModal = e.composedPath()[0];
-      this.focusTime = $OptionModal.$FocusTimeInput.value;
-      this.restTime = $OptionModal.$RestTimeInput.value;
+      this.focusTime = $OptionModal.focusTime;
+      this.restTime = $OptionModal.restTime;
     }
 
     _onAppStart() {
       this.$WorkingPage.hidden = false;
       this.$IntroPage.hidden = true;
-      this.$WorkingPage.start(this.focusTime);
+      this.$WorkingPage.work(this.focusTime);
     }
 
     _onAppEnd() {
       this.$WorkingPage.hidden = true;
       this.$EndPage.hidden = false;
+      this.$EndPage.totalFocusTime = this.totalFocusTime;
     }
 
     _onAppReset() {
       this.$EndPage.hidden = true;
       this.$IntroPage.hidden = false;
+      this.totalFocusTime = 0;
+    }
+
+    _onRest() {
+      this.$WorkingPage.rest(this.restTime);
+    }
+
+    _onWork() {
+      this.$WorkingPage.work(this.focusTime);
+    }
+
+    _onTic() {
+      this.totalFocusTime += 1;
     }
   }
 

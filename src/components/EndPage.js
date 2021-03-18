@@ -73,6 +73,23 @@
       this.$ResetButton.removeEventListener('click', this._onReset);
     }
 
+    renderTime() {
+      const time = this.totalFocusTime;
+      if (!time) {
+        this.$TotalFocus.innerHTML = '0초';
+        return;
+      }
+
+      const seconds = time % 60;
+      const minutes = parseInt(time / 60) % 60;
+      const hours = parseInt(parseInt(time / 60) / 60) % 60;
+
+      this.$TotalFocus.innerHTML = `
+      ${hours ? `${hours}시간` : ''} 
+      ${minutes ? `${minutes}분` : ''} 
+      ${seconds ? `${seconds}초` : ''}`;
+    }
+
     set hidden(value) {
       const bool = Boolean(value);
       if (bool) {
@@ -86,6 +103,15 @@
 
     get hidden() {
       return this.hasAttribute('hidden');
+    }
+
+    set totalFocusTime(value) {
+      this.setAttribute('total-focus-time', value);
+      this.renderTime();
+    }
+
+    get totalFocusTime() {
+      return parseInt(this.getAttribute('total-focus-time'));
     }
   }
 
