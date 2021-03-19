@@ -23,6 +23,7 @@
         font-size: 1.25rem;
         text-align: center;
         margin-bottom: 1rem;
+        word-break: keep-all;
       }
 
       .tail {
@@ -34,6 +35,11 @@
       }
 
       @media screen and (max-width: 900px) {
+        custom-container {
+          width: 100%;
+          height: 100%;
+        }
+
         .title {
           font-size: 2.5rem;
         }
@@ -43,7 +49,6 @@
         }
       }
     </style>
-    <div>
       <custom-container>
         <div>
           <div class="head">
@@ -63,9 +68,8 @@
             <custom-button color="green">시작</custom-button>
           </div>
         </div>
+        <option-modal></option-modal>
       </custom-container>
-      <option-modal></option-modal>
-    </div>
   `;
 
   class IntroPage extends HTMLElement {

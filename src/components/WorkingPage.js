@@ -6,7 +6,7 @@
         text-align: center;
         display: none;
       }
-      
+
       .head {
         margin-bottom: 2rem;
         font-size: 3rem;
