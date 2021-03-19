@@ -23,11 +23,11 @@
         font-size: 1.25rem;
         text-align: center;
         margin-bottom: 1rem;
-        word-break: keep-all;
       }
 
       .tail {
         text-align: center;
+        margin-top: 2rem;
       }
 
       custom-button {
@@ -123,7 +123,10 @@
         this.$PageWrapper.style.display = 'none';
         this.setAttribute('hidden', '');
       } else {
-        this.$PageWrapper.style.display = 'flex';
+        this.$PageWrapper.style = {
+          display: 'flex',
+          flexDirection: 'column',
+        };
         this.removeAttribute('hidden');
       }
     }

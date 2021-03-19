@@ -19,14 +19,24 @@
     #reset-button {
       background: #a63114;
     }
+
+    @media screen and (max-width: 820px) {
+      .head {
+        font-size: 1.5rem;
+      }
+
+      .body {
+        font-size: 1.5rem;
+      }
+    }
     
     @media screen and (max-width: 425px) {
       .head {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     
       .body {
-        font-size: 1rem;
+        font-size: 1.5rem;
       }
     }
     </style>

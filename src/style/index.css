@@ -7,12 +7,23 @@
   font-style: normal;
 }
 
+html {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: Neo;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #032ca6;
+}
+
+@media screen and (max-width: 450px) {
+  body {
+    background: #021859;
+  }
 }

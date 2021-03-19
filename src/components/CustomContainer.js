@@ -12,6 +12,34 @@
         border: 5px solid #04adbf;
         border-radius: 1rem;
         color: #f2cb05;
+        word-break: keep-all;
+      }
+
+      @media screen and (max-width: 900px) {
+        :host div {
+          padding: 2rem;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        :host div {
+          max-width: 22rem;
+        }
+      }
+
+      @media screen and (max-width: 450px) {
+        :host div {
+          border: none;
+          background: none;
+        }
+      }
+
+      @media screen and (max-width: 415px) {
+        :host div {
+          border: none;
+          background: none;
+          max-width: 16rem;
+        }
       }
     </style>
     <div>

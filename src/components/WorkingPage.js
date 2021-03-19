@@ -9,7 +9,7 @@
 
       .head {
         margin-bottom: 2rem;
-        font-size: 3rem;
+        font-size: 2.5rem;
       } 
       
       .body {
@@ -22,7 +22,7 @@
       }
       
       #remain-time {
-        font-size: 3rem;
+        font-size: 2.5rem;
       }
       
       #end-button {
@@ -30,17 +30,32 @@
       }
       
       @media screen and (max-width: 820px) {
+        .head {
+          font-size: 2rem;
+        }
+
+        .body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
         #remain-type {
           display: block;
           text-align: center;
-          margin-bottom: 0.5rem;
           width: 100%;
+          margin: 0;
+          margin-bottom: 1rem;
+        }
+        
+        #remain-time {
+          font-size: 2rem;
         }
       }
       
       @media screen and (max-width: 425px) {
         .head {
-          font-size: 2.5rem;
+          font-size: 2rem;
         }
       
         #remain-type {
@@ -49,12 +64,13 @@
       
         #remain-time {
           font-size: 2rem;
+          margin: 0 auto;
         }
       }
       
       @media screen and (max-width: 320px) {
         .head {
-          font-size: 2rem;
+          font-size: 1.5rem;
         }
       
         #remain-type {
