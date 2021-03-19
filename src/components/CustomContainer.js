@@ -8,9 +8,9 @@
         justify-content: center;
         align-items: center;
         background: #021859;
+        padding: 5rem;
         border: 5px solid #04adbf;
         border-radius: 1rem;
-        padding: 5rem;
         color: #f2cb05;
       }
     </style>

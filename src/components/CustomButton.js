@@ -36,10 +36,6 @@
   `;
 
   class CustomButton extends HTMLElement {
-    static get observedAttributes() {
-      return ['color'];
-    }
-
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });

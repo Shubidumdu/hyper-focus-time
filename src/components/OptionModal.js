@@ -2,7 +2,7 @@
   const template = document.createElement('template');
   template.innerHTML = `
     <style>
-      .modal-wrapper {
+      .wrapper {
         position: fixed;
         display: none;
         top: 0;
@@ -23,12 +23,12 @@
         width: 20rem;
       }
       
-      .modal-title {
+      .head {
         font-size: 2rem;
         margin-bottom: 1rem;
       }
       
-      .modal-body input {
+      input {
         font-family: Neo;
         font-size: 1rem;
         background: #021859;
@@ -38,33 +38,33 @@
         margin-right: 0.25rem;
       }
       
-      .modal-body .set-label {
+      .label {
         margin: 0.5rem 0;
       }
-      
-      .modal p {
-        font-size: 1rem;
-      }
-      
-      .close-wrapper {
+    
+      .tail {
         text-align: right;
         margin-top: 1rem;
       }
+
+      custom-button {
+        margin: 0.25rem;
+      }
     </style>
-    <div class="modal-wrapper">
+    <div class="wrapper">
       <div class="modal">
-        <div class="modal-title">설정</div>
-        <div class="modal-body">
-          <div class="set-focus-time">
-            <div class="set-label">집중할 시간</div>
+        <div class="head">설정</div>
+        <div class="body">
+          <div>
+            <div class="label">집중할 시간</div>
             <input id="focus-time" type="number" min="1"/>분
           </div>
-          <div class="set-rest-time">
-            <div class="set-label">쉬는 시간</div>
+          <div>
+            <div class="label">쉬는 시간</div>
             <input id="rest-time" type="number" min="1" />분
           </div>
         </div>
-        <div class="close-wrapper">
+        <div class="tail">
           <custom-button color="red">취소</custom-button>
           <custom-button color="green">확인</custom-button>
         </div>
@@ -94,7 +94,7 @@
       );
       this.$FocusTimeInput = this.shadowRoot.querySelector('#focus-time');
       this.$RestTimeInput = this.shadowRoot.querySelector('#rest-time');
-      this.$ModalWrapper = this.shadowRoot.querySelector('.modal-wrapper');
+      this.$ModalWrapper = this.shadowRoot.querySelector('.wrapper');
     }
 
     connectedCallback() {

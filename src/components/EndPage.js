@@ -1,39 +1,41 @@
 (function () {
   const template = document.createElement('template');
   template.innerHTML = `
-    <style>
-      .on-end {
-        text-align: center;
-      }
-      
-      .on-end .head {
-        font-size: 3rem;
-        margin-bottom: 2rem;
-      }
-      
-      .on-end .body {
+    <style>   
+    div {
+      text-align: center;
+    }
+
+    .head {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    
+    .body {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    #reset-button {
+      background: #a63114;
+    }
+    
+    @media screen and (max-width: 425px) {
+      .head {
         font-size: 2rem;
-        margin-bottom: 2rem;
       }
-      
-      #reset-button {
-        background: #a63114;
+    
+      .body {
+        font-size: 1rem;
       }
-      
-      @media screen and (max-width: 425px) {
-        .on-end .head {
-          font-size: 2rem;
-        }
-      
-        .on-end .body {
-          font-size: 1rem;
-        }
-      }
+    }
     </style>
     <custom-container>
-      <div class="on-end">
+      <div>
         <div class="head">수고했어요!</div>
-        <div class="body"><span id="total-focus"></span> 동안 집중했습니다!</div>
+        <div class="body">
+          <span id="total-time"></span> 동안 집중했습니다!
+        </div>
         <div class="tail">
           <custom-button id="reset-button" color='green'>다시</custom-button>
         </div>
@@ -51,7 +53,7 @@
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.append(template.content.cloneNode(true));
       this._onReset = this._onReset.bind(this);
-      this.$TotalFocus = this.shadowRoot.querySelector('#total-focus');
+      this.$TotalFocus = this.shadowRoot.querySelector('#total-time');
       this.$ResetButton = this.shadowRoot.querySelector('#reset-button');
       this.$PageWrapper = this.shadowRoot.querySelector('custom-container');
     }

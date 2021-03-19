@@ -29,7 +29,7 @@
         text-align: center;
       }
 
-      .tail button {
+      custom-button {
         margin: 0.5rem;
       }
 
@@ -40,10 +40,6 @@
       
         .body {
           padding: 0 1rem;
-        }
-      
-        .body span {
-          display: inline;
         }
       }
     </style>
@@ -56,7 +52,7 @@
           </div>
           <div class="body">
             <div>
-              절대집중시간은 당신의 반복적인 집중과 휴식을 위한 타이머를 제공합니다.
+              절대집중시간은 당신의 반복적인 집중과 휴식을 위한 타이머입니다.
             </div>
             <div>
               해당 앱을 작동시키는 동안에는 오직 해야할 일에 집중해보세요!

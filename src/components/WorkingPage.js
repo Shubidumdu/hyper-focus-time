@@ -2,26 +2,26 @@
   const template = document.createElement('template');
   template.innerHTML = `
     <style>
-      .on-work {
+      .custom-container {
         text-align: center;
         display: none;
       }
       
-      .on-work .head {
+      .head {
         margin-bottom: 2rem;
         font-size: 3rem;
       } 
       
-      .on-work .body {
+      .body {
         margin-bottom: 2rem;
       }
       
-      .on-work #remain-type {
+      #remain-type {
         font-size: 1.5rem;
         margin-right: 1rem;
       }
       
-      .on-work #remain-time {
+      #remain-time {
         font-size: 3rem;
       }
       
@@ -30,7 +30,7 @@
       }
       
       @media screen and (max-width: 820px) {
-        .on-work #remain-type {
+        #remain-type {
           display: block;
           text-align: center;
           margin-bottom: 0.5rem;
@@ -39,35 +39,35 @@
       }
       
       @media screen and (max-width: 425px) {
-        .on-work .head {
+        .head {
           font-size: 2.5rem;
         }
       
-        .on-work #remain-type {
+        #remain-type {
           font-size: 1.5rem;
         }
       
-        .on-work #remain-time {
+        #remain-time {
           font-size: 2rem;
         }
       }
       
       @media screen and (max-width: 320px) {
-        .on-work .head {
+        .head {
           font-size: 2rem;
         }
       
-        .on-work #remain-type {
+        #remain-type {
           font-size: 1rem;
         }
       
-        .on-work #remain-time {
+        #remain-time {
           font-size: 1.5rem;
         }
       }
     </style>
-    <custom-container class='on-work'>
-      <div id="on-work-header" class="head"></div>
+    <custom-container>
+      <div class="head"></div>
       <div class="body">
         <span id="remain-type"></span>
         <span id="remain-time"></span>

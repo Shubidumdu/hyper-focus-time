@@ -8,12 +8,12 @@ app.set('views', __dirname + '/src');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
-app.get('/', function(req,res){
-    res.render('index.html')
- });
+app.get('/', function (req, res) {
+  res.render('index.html');
+});
 
- app.use(express.static(path.join(__dirname, 'src')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.listen(PORT, () => {
-    console.log(`Check out the app at http://localhost:${PORT}`);
+  console.log(`Check out the app at http://localhost:${PORT}`);
 });

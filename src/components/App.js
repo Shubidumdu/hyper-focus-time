@@ -1,6 +1,7 @@
 (function () {
   const template = document.createElement('template');
   template.innerHTML = `
+    </style>
     <intro-page></intro-page>
     <working-page hidden></working-page>
     <end-page hidden></end-page>
@@ -17,6 +18,7 @@
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });
+      this.shadowRoot.append(template.content.cloneNode(true));
       this._onModalOpen = this._onModalOpen.bind(this);
       this._onOptionConfirm = this._onOptionConfirm.bind(this);
       this._onAppStart = this._onAppStart.bind(this);
@@ -24,7 +26,6 @@
       this._onRest = this._onRest.bind(this);
       this._onWork = this._onWork.bind(this);
       this._onTic = this._onTic.bind(this);
-      this.shadowRoot.append(template.content.cloneNode(true));
       this.$IntroPage = this.shadowRoot.querySelector('intro-page');
       this.$WorkingPage = this.shadowRoot.querySelector('working-page');
       this.$EndPage = this.shadowRoot.querySelector('end-page');
