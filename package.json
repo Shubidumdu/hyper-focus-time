@@ -4,7 +4,8 @@
   "description": "be focus on what you should do!",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "deploy": "git subtree push --prefix src origin deploy"
   },
   "repository": {
     "type": "git",
