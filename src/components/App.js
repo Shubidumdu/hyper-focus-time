@@ -39,6 +39,12 @@
       this.addEventListener('rest', this._onRest);
       this.addEventListener('work', this._onWork);
       this.addEventListener('tic', this._onTic);
+
+      window.onload = function () {
+        if (window.Notification) {
+          Notification.requestPermission();
+        }
+      };
     }
 
     disconnectedCallback() {
@@ -84,10 +90,18 @@
 
     _onRest() {
       this.$WorkingPage.rest(this.restTime);
+      new Notification(`잠깐 쉬세요!`, {
+        icon: 'img/rest.png',
+        body: '잠깐 머리 좀 식혔다가 다시 집중하도록 해요!',
+      });
     }
 
     _onWork() {
       this.$WorkingPage.work(this.focusTime);
+      new Notification('다시 집중할 시간이에요!', {
+        icon: 'img/focus.png',
+        body: '자! 자리로 돌아와서 다시 집중해봅시다!',
+      });
     }
 
     _onTic() {
