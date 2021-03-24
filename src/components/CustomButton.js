@@ -40,11 +40,11 @@
       super();
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.append(template.content.cloneNode(true));
+      this.$Button = this.shadowRoot.querySelector('button');
     }
 
     connectedCallback() {
       if (!this.hasAttribute('role')) this.setAttribute('role', 'button');
-      if (!this.hasAttribute('tabindex')) this.setAttribute('tabindex', 0);
     }
 
     set color(value) {
