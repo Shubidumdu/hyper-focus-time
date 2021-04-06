@@ -2,7 +2,7 @@
   const template = document.createElement('template');
   template.innerHTML = `
     <style>   
-    div {
+    main {
       text-align: center;
     }
 
@@ -41,15 +41,13 @@
     }
     </style>
     <custom-container>
-      <div>
-        <div class="head">수고했어요!</div>
-        <div class="body">
-          <span id="total-time"></span> 동안 집중했습니다!
-        </div>
-        <div class="tail">
-          <custom-button id="reset-button" color='green'>다시</custom-button>
-        </div>
-      </div>
+      <header class="head">수고했어요!</header>
+      <main class="body">
+        <span id="total-time"></span> 동안 집중했습니다!
+      </main>
+      <footer class="tail">
+        <custom-button id="reset-button" color='green'>다시</custom-button>
+      </footer>
     </custom-container>
   `;
 

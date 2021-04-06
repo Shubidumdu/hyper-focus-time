@@ -2,7 +2,7 @@
   const template = document.createElement('template');
   template.innerHTML = `
     <style>
-      :host div{
+      :host section{
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -16,35 +16,35 @@
       }
 
       @media screen and (max-width: 900px) {
-        :host div {
+        :host section {
           padding: 2rem;
         }
       }
 
       @media screen and (max-width: 768px) {
-        :host div {
+        :host section {
           max-width: 22rem;
         }
       }
 
       @media screen and (max-width: 450px) {
-        :host div {
+        :host section {
           border: none;
           background: none;
         }
       }
 
       @media screen and (max-width: 415px) {
-        :host div {
+        :host section {
           border: none;
           background: none;
           max-width: 16rem;
         }
       }
     </style>
-    <div>
+    <section>
       <slot></slot>
-    </div>
+    </section>
   `;
 
   class CustomContainer extends HTMLElement {

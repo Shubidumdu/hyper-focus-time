@@ -51,25 +51,25 @@
         margin: 0.25rem;
       }
     </style>
-    <div class="wrapper">
-      <div class="modal">
-        <div class="head">설정</div>
+    <section class="wrapper">
+      <main class="modal">
+        <header class="head">설정</header>
         <div class="body">
-          <div>
+          <section>
             <div class="label">집중할 시간</div>
             <input id="focus-time" type="number" min="1"/>분
-          </div>
-          <div>
+          </section>
+          <section>
             <div class="label">쉬는 시간</div>
             <input id="rest-time" type="number" min="1" />분
-          </div>
+          </section>
         </div>
-        <div class="tail">
+        <footer class="tail">
           <custom-button color="red">취소</custom-button>
           <custom-button color="green">확인</custom-button>
-        </div>
-      </div>
-    </div>
+        </footer>
+      </main>
+    </section>
   `;
 
   class OptionModal extends HTMLElement {

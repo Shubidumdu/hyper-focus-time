@@ -87,15 +87,15 @@
       }
     </style>
     <custom-container>
-      <div class="head"></div>
-      <div class="body">
+      <header class="head"></header>
+      <section class="body">
         <span id="remain-type"></span>
         <span id="remain-time"></span>
-      </div>
-      <div class="tail">
+      </section>
+      <footer class="tail">
         <custom-button color='red'>잠깐</custom-button>
         <custom-button color='green'>완료</custom-button>
-      </div>
+      </footer>
     </custom-container>
   `;
 

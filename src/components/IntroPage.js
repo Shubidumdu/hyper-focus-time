@@ -50,24 +50,24 @@
       }
     </style>
       <custom-container>
-        <div>
-          <div class="head">
+        <section>
+          <header class="head">
             <span class="title">절대집중시간</span>
             <span class="sub-title">HYPER-FOCUS TIME</span>
-          </div>
-          <div class="body">
-            <div>
+          </header>
+          <main class="body">
+            <section>
               절대집중시간은 당신의 반복적인 집중과 휴식을 위한 타이머입니다.
-            </div>
-            <div>
+            </section>
+            <section>
               해당 앱을 작동시키는 동안에는 오직 해야할 일에 집중해보세요!
-            </div>
-          </div>
-          <div class="tail">
+            </section>
+          </main>
+          <footer class="tail">
             <custom-button color="red">설정</custom-button>
             <custom-button color="green">시작</custom-button>
-          </div>
-        </div>
+          </footer>
+        </section>
         <option-modal></option-modal>
       </custom-container>
   `;
@@ -91,7 +91,7 @@
         "custom-button[color='green']",
       );
       this.$OptionModal = this.shadowRoot.querySelector('option-modal');
-      this.$PageWrapper = this.shadowRoot.querySelector('div');
+      this.$PageWrapper = this.shadowRoot.querySelector('section');
     }
 
     connectedCallback() {
